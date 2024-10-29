@@ -1,5 +1,15 @@
 import QtQuick
+import QtQuick.Controls
 
-Item {
+Rectangle {
 
+    color: "lightgreen"
+    anchors.fill: parent
+
+
+    Text {
+        text: "Rozpocznij naukę"
+        anchors.centerIn: parent
+        font.pointSize: 20
+    }
 }

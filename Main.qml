@@ -28,7 +28,7 @@ Window {
 
         Rectangle
         {
-            id:firstRect
+            id:startRect
             color:"#D76C82"
             radius:10
             anchors.fill: parent
@@ -37,12 +37,23 @@ Window {
 
             Text
             {
-                id:firstText
+                id:startText
                 text:"Rozpocznij naukę!"
                 color:"white"
                 font.bold: true
                 font.pointSize: 12
                 anchors.centerIn: parent
+            }
+        }
+        MouseArea
+        {
+            id:startArea
+            anchors.fill:parent
+            hoverEnabled: true
+
+            onClicked:
+            {
+                mainLoader.source="level1.qml"
             }
         }
     }
@@ -256,6 +267,12 @@ poziomu"
 
         }
     }
+
     }
+        Loader
+        {
+            id:mainLoader
+            anchors.fill: parent
+        }
 }
 
