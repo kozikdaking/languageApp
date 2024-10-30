@@ -1,7 +1,8 @@
 import QtQuick
 import QtQuick.Controls
 
-Window {
+ApplicationWindow {
+    id:window
     width: 720/2
     height: 1280/2
     visible: true
@@ -11,7 +12,7 @@ Window {
     Rectangle
     {
         id:background
-        color:"gray"
+        color:"#FFF6E3"
         anchors.fill: parent
         height:parent.height
         width:parent.width
