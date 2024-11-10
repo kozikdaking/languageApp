@@ -17,12 +17,26 @@ Rectangle {
 
 
     Text {
+        id:level1
         text: "PYTANIE NUMER 1"
         anchors.top:parent.top
         anchors.topMargin: 20
         anchors.horizontalCenter: parent.horizontalCenter
         font.pointSize: 20
     }
+
+    Text
+    {
+        id:question
+        text:"Co u Ciebie słychać"
+        font.pointSize: 25
+        font.bold: true
+        anchors.top: level1.bottom
+        anchors.topMargin: 20
+        anchors.horizontalCenter: parent.horizontalCenter
+
+    }
+
 Button
 {
     id:mainmenu
@@ -65,10 +79,19 @@ Button
             id:aRect
             height:parent.height
             width:parent.width
-            color:"white"
+            color:aRectMouse.containsMouse?"#D4F6FF":"white"
             border.color: "black"
             anchors.fill: parent
             radius:10
+
+            Text
+            {
+                id:aText
+                text:"¿Cómo es tu trabajo?"
+                font.pixelSize: 15
+                font.bold: true
+                anchors.centerIn: parent
+            }
 
             MouseArea
             {
@@ -92,15 +115,24 @@ Button
         height:50
         width:200
 
-        background:Rectangle
+        Rectangle
         {
             id:bRect
             height:parent.height
             width:parent.width
-            color:"white"
+            color:bRectMouse.containsMouse?"#F0C1E1":"white"
             border.color: "black"
             anchors.fill: parent
             radius:10
+
+            Text
+            {
+                id:bText
+                text:"¿Qué pasa?"
+                font.pixelSize: 15
+                font.bold: true
+                anchors.centerIn: parent
+            }
         }
 
         MouseArea
@@ -111,7 +143,10 @@ Button
 
             onClicked:
             {
+
+
                 correctAnsButton.visible=true
+
 
             }
         }
@@ -127,16 +162,37 @@ Button
         width:200
 
 
-        background:Rectangle
+        Rectangle
         {
             id:cRect
             height:parent.height
             width:parent.width
-            color:"white"
+            color:cRectMouse.containsMouse?"#9B7EBD":"white"
             border.color: "black"
             anchors.fill: parent
             radius:10
 
+            Text
+            {
+                id:cText
+                text:"coexistir"
+                font.pixelSize: 15
+                font.bold: true
+                anchors.centerIn: parent
+            }
+
+        }
+        MouseArea
+        {
+            id:cRectMouse
+            anchors.fill: parent
+            hoverEnabled: true
+
+            onClicked:
+            {
+                incorrectAns.visible=true
+
+            }
         }
     }
 
@@ -149,20 +205,41 @@ Button
         width:200
 
 
-        background:Rectangle
+        Rectangle
         {
             id:dRect
             height:parent.height
             width:parent.width
-            color:"white"
+            color:dRectMouse.containsMouse?"#B6FFA1":"white"
             border.color: "black"
             anchors.fill: parent
             radius:10
 
+            Text
+            {
+                id:dText
+                text:"?Qué pasa?"
+                font.pixelSize: 15
+                font.bold: true
+                anchors.centerIn: parent
+            }
+
+            MouseArea
+            {
+                id:dRectMouse
+                anchors.fill: parent
+                hoverEnabled: true
+
+                onClicked:
+                {
+                    incorrectAns.visible=true
+
+                }
+            }
         }
     }
 }
-    //------------------------------------------------LOGIC----------------------------------------------------------
+    //------------------------------------------------INCORRECT----------------------------------------------------------
     Rectangle
     {
         id:incorrectAns
@@ -171,6 +248,7 @@ Button
         anchors.bottom: parent.bottom
         color:"white"
         visible: false
+
         Text
         {
             id:incorrectAnsText
@@ -203,8 +281,8 @@ incorrectAns.visible=false
     Button
     {
         id:correctAnsButton
-        height:40
-        width:250
+        height:60
+        width:300
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 15
         anchors.horizontalCenter: parent.horizontalCenter
@@ -212,7 +290,7 @@ incorrectAns.visible=false
         Rectangle
         {
             id:correntAnsRect
-            color:"yellow"
+            color:"green"
             anchors.fill: parent
             height:parent.height
             width:parent.width
@@ -223,7 +301,7 @@ incorrectAns.visible=false
                 id:correntAnsText
                 text:"Correct Answear, Gratulations
 Go into second level!"
-                color:"green"
+                color:"white"
                 font.bold: true
                 font.pointSize: 14
             }
