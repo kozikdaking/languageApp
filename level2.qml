@@ -51,6 +51,7 @@ Button
         id:mainMenuArea
         anchors.fill:parent
         hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
 
         onClicked:
         {
@@ -89,6 +90,7 @@ Button
                 id:aRectMouse
                 anchors.fill: parent
                 hoverEnabled: true
+                cursorShape: Qt.PointingHandCursor
 
                 onClicked:
                 {
@@ -131,6 +133,7 @@ Button
             id:bRectMouse
             anchors.fill: parent
             hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
 
             onClicked:
             {
@@ -255,6 +258,7 @@ Go into second level!"
                 id:correctMouse
                 anchors.fill: parent
                 hoverEnabled: true
+                cursorShape: Qt.PointingHandCursor
 
                 onClicked:
                 {

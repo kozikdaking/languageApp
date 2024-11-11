@@ -7,6 +7,10 @@ ApplicationWindow {
     height: 1280/2
     visible: true
     title: qsTr("Hello World")
+    minimumWidth: width
+        maximumWidth: width
+        minimumHeight: height
+        maximumHeight: height
 
 
     Rectangle
@@ -51,6 +55,7 @@ ApplicationWindow {
             id:startArea
             anchors.fill:parent
             hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
 
             onClicked:
             {
@@ -210,14 +215,15 @@ ApplicationWindow {
 
         }
     }
-
+//-----------------------------------------------------------------------LEVEL-----------------------------------------------------------------------
     Button
     {
+
+
         id:levelChoice
         height:100
         width:100
         Rectangle
-
         {
             id:levelRect
             color:"#6A9AB0"
@@ -235,12 +241,21 @@ poziomu"
                 font.bold: true
                 font.pointSize: 12
                 anchors.centerIn: parent
-
             }
-
+        }
+        MouseArea
+        {
+            id:levelChoiceArea
+            anchors.fill: parent
+            hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
+            onClicked:
+            {
+                levelChoiceLoader.source="levelChoice.qml"
+            }
         }
     }
-
+//-----------------------------------------------------------------------LEVEL-----------------------------------------------------------------------
     Button
     {
         id:dictionary
@@ -265,6 +280,17 @@ poziomu"
                 font.pointSize: 12
                 anchors.centerIn: parent
             }
+            MouseArea
+            {
+                id:dictionaryArea
+                anchors.fill: parent
+                hoverEnabled: true
+                cursorShape: Qt.PointingHandCursor
+                onClicked:
+                {
+                    dictionaryLoader.source="Slownik.qml"
+                }
+            }
 
         }
     }
@@ -275,5 +301,16 @@ poziomu"
             id:mainLoader
             anchors.fill: parent
         }
+        Loader
+        {
+            id:levelChoiceLoader
+            anchors.fill: parent
+        }
+        Loader
+        {
+            id:dictionaryLoader
+            anchors.fill: parent
+        }
+
 }
 
