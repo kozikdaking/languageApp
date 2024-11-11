@@ -148,7 +148,7 @@ Button
             {
 
 
-                correctAnsButton.visible=true
+                correctAnsRect.visible=true
 
 
             }
@@ -248,9 +248,8 @@ Button
     Rectangle
     {
         id:incorrectAns
-        height:400
-        width:400
-        anchors.bottom: parent.bottom
+        height:parent.height
+        width:parent.width
         color:"white"
         visible: false
 
@@ -258,40 +257,68 @@ Button
         {
             id:incorrectAnsText
             color:"red"
-            text:"Incorrect Answear, try again"
+            text:"Zła odpowiedź, spróbuj ponownie"
             font.bold: true
             font.pointSize: 14
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter:parent.horizontalCenter
-
+            anchors.bottom: x.top
+            anchors.bottomMargin: 150
+            anchors.horizontalCenter: parent.horizontalCenter
         }
-
-
 
         Button
         {
             id:x
-            height:30
-            width:30
-            anchors.left: parent.left
-            anchors.top: parent.top
-            text:"x"
-            onClicked:
+            height:100
+            width:300
+            anchors.centerIn: parent
+
+
+            Rectangle
             {
-incorrectAns.visible=false
+                id:xRect
+                anchors.fill: parent
+                color:"red"
+                radius:10
             }
+            Text
+            {
+                text:"✗"
+                anchors.centerIn:parent
+                font.bold: true
+                font.pointSize: 30
+                color:"white"
+
+            }
+MouseArea
+{
+    anchors.fill: parent
+    cursorShape: Qt.PointingHandCursor
+    hoverEnabled: true
+    onClicked:
+    {
+incorrectAns.visible=false
+    }
+}
+
         }
     }
  //-----------------------------------------------CORRECT--------------------------------------------------------------
+    Rectangle
+    {
+        id:correctAnsRect
+        height:parent.height
+        width:parent.width
+        color:"white"
+        anchors.fill: parent
+        visible: false
+
+
     Button
     {
         id:correctAnsButton
-        height:60
+        height:100
         width:300
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 15
-        anchors.horizontalCenter: parent.horizontalCenter
-        visible:false
+        anchors.centerIn: parent
         Rectangle
         {
             id:correntAnsRect
@@ -301,14 +328,26 @@ incorrectAns.visible=false
             width:parent.width
             radius:10
         }
+        Text
+        {
+            id:concragtsText
+            text:"Gratulacje! Kliknij przycisk,
+aby przejść do następnego poziomu!"
+            anchors.bottom: correctAnsButton.top
+            anchors.bottomMargin: 150
+            font.pointSize: 13
+            color:"green"
+            font.bold: true
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
             Text
             {
                 id:correntAnsText
-                text:"Correct Answear, Gratulations
-Go into second level!"
+                text:"✔"
                 color:"white"
+                anchors.centerIn: parent
                 font.bold: true
-                font.pointSize: 14
+                font.pointSize: 30
             }
             MouseArea
             {
@@ -322,6 +361,7 @@ Go into second level!"
                     level2Loader.source="level2.qml"
                 }
             }
+    }
     }
     Loader
     {
