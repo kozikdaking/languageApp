@@ -85,4 +85,31 @@ Text
     }
 }
 }
+    Button
+    {
+        id:mainmenu
+        text:"home"
+        height:50
+        width:50
+        anchors.left:parent.left
+        anchors.top: parent.top
+
+        MouseArea
+        {
+            id:mainMenuArea
+            anchors.fill:parent
+            hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
+
+            onClicked:
+            {
+                mainmenuLoader.source="Main.qml"
+            }
+        }
+    }
+    Loader
+    {
+        id:mainmenuLoader
+        anchors.fill: parent
+    }
 }
