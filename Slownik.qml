@@ -7,6 +7,7 @@ Rectangle {
     width: 360
     height: 640
 
+
     ScrollView {
         anchors.centerIn: parent
         width: parent.width * 0.9

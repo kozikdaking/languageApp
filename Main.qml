@@ -6,7 +6,7 @@ ApplicationWindow {
     width: 720/2
     height: 1280/2
     visible: true
-    title: qsTr("Hello World")
+    title: qsTr("Spain App")
     minimumWidth: width
         maximumWidth: width
         minimumHeight: height
@@ -16,10 +16,17 @@ ApplicationWindow {
     Rectangle
     {
         id:background
-        color:"#FFF6E3"
         anchors.fill: parent
         height:parent.height
         width:parent.width
+        Image
+        {
+            source:"assets/background.png"
+            anchors.fill: parent
+            height:parent.height
+            width:parent.width
+        }
+
     }
 
     Button
@@ -34,7 +41,7 @@ ApplicationWindow {
         Rectangle
         {
             id:startRect
-            color:"#D76C82"
+            color:startArea.containsMouse?"#70e000":"#55a630"
             radius:10
             anchors.fill: parent
             height:parent.height
@@ -93,26 +100,23 @@ ApplicationWindow {
             }
         }
     }
-        Grid
-
+       Column
         {
             id:menu
-            spacing:10
+            spacing:15
             anchors.top:firstRect.bottom
             anchors.left: parent
             anchors.centerIn: parent
-            columns:2
 
     Button
     {
         id:settings
-        height:100
-        width:100
+        height:40
+        width:180
         Rectangle
-
         {
             id:settingsRect
-            color:"#CDC1FF"
+            color:settingsArea.containsMouse?"#85182a":"#e01e37"
             radius:10
             anchors.fill: parent
             height:parent.height
@@ -129,18 +133,29 @@ ApplicationWindow {
             }
 
         }
+        MouseArea
+        {
+            id:settingsArea
+            anchors.fill: parent
+            hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
+            onClicked:
+            {
+
+            }
+        }
     }
     Button
     {
         id:stats
-        height:100
-        width:100
+        height:40
+        width:180
 
 
         Rectangle
         {
             id:statsRect
-            color:"#FFCF9D"
+            color:statsArea.containsMouse?"#85182a":"#e01e37"
             radius:10
             anchors.fill: parent
             height:parent.height
@@ -157,18 +172,29 @@ ApplicationWindow {
             }
 
         }
+        MouseArea
+        {
+            id:statsArea
+            anchors.fill: parent
+            hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
+            onClicked:
+            {
+
+            }
+        }
     }
 
     Button
     {
         id:achivements
-        height:100
-        width:100
+        height:40
+        width:180
         Rectangle
 
         {
             id:achivementsRect
-            color:"#72BF78"
+            color:achivementsArea.containsMouse?"#85182a":"#e01e37"
             radius:10
             anchors.fill: parent
             height:parent.height
@@ -186,18 +212,29 @@ ApplicationWindow {
             }
 
         }
+        MouseArea
+        {
+            id:achivementsArea
+            anchors.fill: parent
+            hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
+            onClicked:
+            {
+
+            }
+        }
     }
 
     Button
     {
         id:x
-        height:100
-        width:100
+        height:40
+        width:180
         Rectangle
 
         {
             id:xRect
-            color:"#ECDFCC"
+            color:xArea.containsMouse?"#85182a":"#e01e37"
             radius:10
             anchors.fill: parent
             height:parent.height
@@ -214,19 +251,28 @@ ApplicationWindow {
             }
 
         }
+        MouseArea
+        {
+            id:xArea
+            anchors.fill: parent
+            hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
+            onClicked:
+            {
+
+            }
+        }
     }
 //-----------------------------------------------------------------------LEVEL-----------------------------------------------------------------------
     Button
     {
-
-
         id:levelChoice
-        height:100
-        width:100
+        height:40
+        width:180
         Rectangle
         {
             id:levelRect
-            color:"#6A9AB0"
+            color:levelChoiceArea.containsMouse?"#85182a":"#e01e37"
             radius:10
             anchors.fill: parent
             height:parent.height
@@ -259,13 +305,13 @@ poziomu"
     Button
     {
         id:dictionary
-        height:100
-        width:100
+        height:40
+        width:180
         Rectangle
 
         {
             id:dictionaryRect
-            color:"#CDC1FF"
+            color:dictionaryArea.containsMouse?"#85182a":"#e01e37"
             radius:10
             anchors.fill: parent
             height:parent.height
@@ -311,6 +357,5 @@ poziomu"
             id:dictionaryLoader
             anchors.fill: parent
         }
-
 }
 

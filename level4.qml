@@ -3,7 +3,7 @@ import QtQuick.Controls
 
 Rectangle {
 
-    id:level2window
+    id:level4window
     anchors.fill: parent
 
     Image
@@ -13,6 +13,7 @@ Rectangle {
         height:parent.height
         width:parent.width
     }
+
     Loader
     {
         id:mainmenuLoader
@@ -23,7 +24,7 @@ Rectangle {
 
     Text {
         id:level1
-        text: "PYTANIE NUMER 2"
+        text: "PYTANIE NUMER 4"
         anchors.top:parent.top
         anchors.topMargin: 20
         anchors.horizontalCenter: parent.horizontalCenter
@@ -33,7 +34,7 @@ Rectangle {
     Text
     {
         id:question
-        text:"Dzień dobry"
+        text:"Dziękuję"
         font.pointSize: 25
         font.bold: true
         anchors.top: level1.bottom
@@ -45,11 +46,19 @@ Rectangle {
 Button
 {
     id:mainmenu
-    text:"home"
     height:50
     width:50
     anchors.left:parent.left
     anchors.top: parent.top
+Text
+{
+    text:"🏠"
+    font.pointSize: 30
+    anchors.centerIn: parent
+    height:parent.height
+    width:parent.width
+}
+
 
     MouseArea
     {
@@ -64,6 +73,7 @@ Button
         }
     }
 }
+
 
     Column
     {
@@ -91,10 +101,11 @@ Button
 
             Text
             {
-                text:"Adiós"
-                font.pointSize: 15
+                id:aText
+                text:"Lo siento"
+                font.pixelSize: 15
                 font.bold: true
-                anchors.centerIn:parent
+                anchors.centerIn: parent
             }
 
             MouseArea
@@ -107,7 +118,6 @@ Button
                 onClicked:
                 {
                     incorrectAns.visible=true
-
                 }
             }
         }
@@ -133,7 +143,7 @@ Button
             Text
             {
                 id:bText
-                text:"Buenas noches"
+                text:"Por favor"
                 font.pixelSize: 15
                 font.bold: true
                 anchors.centerIn: parent
@@ -149,8 +159,7 @@ Button
 
             onClicked:
             {
-                incorrectAns.visible=true
-
+incorrectAns.visible=true
             }
         }
     }
@@ -174,14 +183,15 @@ Button
             border.color: "black"
             anchors.fill: parent
             radius:10
-Text
-{
-    id:cText
-    text:"Buenos días"
-    font.pixelSize:15
-    font.bold:true
-    anchors.centerIn:parent
-}
+
+            Text
+            {
+                id:cText
+                text:"Gracias"
+                font.pixelSize: 15
+                font.bold: true
+                anchors.centerIn: parent
+            }
 
         }
         MouseArea
@@ -190,9 +200,11 @@ Text
             anchors.fill: parent
             hoverEnabled: true
             cursorShape: Qt.PointingHandCursor
+
             onClicked:
             {
-correctAns.visible=true
+                correctAns.visible=true
+
             }
         }
     }
@@ -215,30 +227,33 @@ correctAns.visible=true
             border.color: "black"
             anchors.fill: parent
             radius:10
+
             Text
             {
                 id:dText
-                text:"Hola"
-                font.pixelSize:15
-                font.bold:true
-                anchors.centerIn:parent
+                text:"De nada"
+                font.pixelSize: 15
+                font.bold: true
+                anchors.centerIn: parent
             }
-        }
-        MouseArea
-        {
-            id:dRectMouse
-            anchors.fill: parent
-            hoverEnabled: true
-            cursorShape: Qt.PointingHandCursor
 
-            onClicked:
+            MouseArea
             {
-                incorrectAns.visible=true
+                id:dRectMouse
+                anchors.fill: parent
+                hoverEnabled: true
+                cursorShape: Qt.PointingHandCursor
+
+                onClicked:
+                {
+                    incorrectAns.visible=true
+
+                }
             }
         }
     }
 }
-    //--------------------------------------------------------------------INCORRECT-----------------------------------------------------------------------------------------
+    //------------------------------------------------INCORRECT----------------------------------------------------------
     Rectangle
     {
         id:incorrectAns
@@ -315,7 +330,7 @@ incorrectAns.visible=false
         anchors.centerIn: parent
         Rectangle
         {
-            id:correctAnsRect
+            id:correntAnsRect
             color:"green"
             anchors.fill: parent
             height:parent.height
@@ -352,14 +367,14 @@ aby przejść do następnego poziomu!"
 
                 onClicked:
                 {
-                    level2Loader.source="level3.qml"
+                    level4Loader.source="level5.qml"
                 }
             }
     }
     }
     Loader
     {
-        id:level2Loader
+        id:level4Loader
         anchors.fill: parent
     }
 

@@ -4,8 +4,15 @@ import QtQuick.Controls
 Rectangle {
 
     id:level1window
-    color: "#FFF6E3"
     anchors.fill: parent
+
+    Image
+    {
+        source:"assets/background.png"
+        anchors.fill: parent
+        height:parent.height
+        width:parent.width
+    }
 
 
     Loader
@@ -40,11 +47,19 @@ Rectangle {
 Button
 {
     id:mainmenu
-    text:"home"
     height:50
     width:50
     anchors.left:parent.left
     anchors.top: parent.top
+Text
+{
+    text:"🏠"
+    font.pointSize: 30
+    anchors.centerIn: parent
+    height:parent.height
+    width:parent.width
+}
+
 
     MouseArea
     {
@@ -80,7 +95,7 @@ Button
             id:aRect
             height:parent.height
             width:parent.width
-            color:aRectMouse.containsMouse?"#D4F6FF":"white"
+            color:aRectMouse.containsMouse?"#B6FFA1":"white"
             border.color: "black"
             anchors.fill: parent
             radius:10
@@ -122,7 +137,7 @@ Button
             id:bRect
             height:parent.height
             width:parent.width
-            color:bRectMouse.containsMouse?"#F0C1E1":"white"
+            color:bRectMouse.containsMouse?"#B6FFA1":"white"
             border.color: "black"
             anchors.fill: parent
             radius:10
@@ -146,11 +161,7 @@ Button
 
             onClicked:
             {
-
-
-                correctAnsRect.visible=true
-
-
+                correctAns.visible=true
             }
         }
     }
@@ -170,7 +181,7 @@ Button
             id:cRect
             height:parent.height
             width:parent.width
-            color:cRectMouse.containsMouse?"#9B7EBD":"white"
+            color:cRectMouse.containsMouse?"#B6FFA1":"white"
             border.color: "black"
             anchors.fill: parent
             radius:10
@@ -305,7 +316,7 @@ incorrectAns.visible=false
  //-----------------------------------------------CORRECT--------------------------------------------------------------
     Rectangle
     {
-        id:correctAnsRect
+        id:correctAns
         height:parent.height
         width:parent.width
         color:"white"
